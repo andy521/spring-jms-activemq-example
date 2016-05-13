@@ -7,7 +7,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 /**
- * 类说明
+ * 订单服务实现
  * @author 李恒名
  * @since 2016年3月25日
  */

@@ -1,25 +1,28 @@
 package consumer.jms.listeners;
 
-import java.text.SimpleDateFormat;
-
 import model.Order;
-
 import org.springframework.jms.annotation.JmsListener;
-import org.springframework.messaging.Message;
-import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
+
+import java.text.SimpleDateFormat;
 
 /**
  * 订单消息队列监听器
+ *
  * @author 李恒名
  * @since 2016年3月28日
  */
 @Component
 public class OrderListener {
+	/**
+	 * 监听订单消息队列，消费消息(处理订单)
+	 *
+	 * @param order the order
+	 */
 	@JmsListener(destination="orders")
 	public void handle(Order order){
 		
-	 MessageBuilder.withPayload(new String()).setHeader("", "").build();
+	    //MessageBuilder.withPayload(new String()).setHeader("", "").build();
 		/*if(message instanceof ObjectMessage){
 			ObjectMessage objectMessage = (ObjectMessage) message;
 			try {
@@ -50,16 +53,5 @@ public class OrderListener {
 			e.printStackTrace();
 		}
 			System.out.println("-----------------订单处理完毕-----------------");
-	}
-	
-	public static <T> T  apply(T o){
-		return (T) o;
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(add(1,2.3333));
-	}
-	public static Number add(Number a,Number b) {
-		return a.doubleValue()+b.doubleValue();
 	}
 }
